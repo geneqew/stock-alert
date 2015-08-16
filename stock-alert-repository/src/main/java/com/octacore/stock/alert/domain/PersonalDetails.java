@@ -9,6 +9,7 @@ public class PersonalDetails implements Serializable {
 	private Long id;
 	private String firstName;
 	private String lastName;
+	private Salutation salutation;
 
 	public Long getId() {
 		return id;
@@ -32,6 +33,14 @@ public class PersonalDetails implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Salutation getSalutation() {
+		return salutation;
+	}
+
+	public void setSalutation(Salutation salutation) {
+		this.salutation = salutation;
 	}
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="user" type="user" />
+
+	<xs:complexType name="user">
+		<xs:attribute name="id" type="xs:long" />
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="firstName" type="xs:string" />
+		<xs:attribute name="lastName" type="xs:string" />
+		<xs:attribute name="salutation" type="salutation" />
+		<xs:attribute name="emailAddress" type="xs:string" />
+		<xs:attribute name="mobileNumber" type="xs:string" />
+		<xs:attribute name="address" type="xs:string" />
+	</xs:complexType>
+
+	<xs:element name="salutation" type="salutation" />
+
+	<xs:simpleType name="salutation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MR" />
+			<xs:enumeration value="MS" />
+			<xs:enumeration value="MRS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

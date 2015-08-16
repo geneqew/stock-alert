@@ -9,6 +9,7 @@ public class ContactDetails implements Serializable {
 	private Long id;
 	private String address;
 	private String emailAddress;
+	private String mobileNumber;
 
 	public Long getId() {
 		return id;
@@ -32,6 +33,14 @@ public class ContactDetails implements Serializable {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 }
