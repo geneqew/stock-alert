@@ -1,20 +1,22 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://www.example.com/stock-watcher"
+	xmlns:stockwatcher="http://www.example.com/stock-watcher">
 
-	<xs:element name="user" type="user" />
+	<xs:element name="user" type="stockwatcher:user" />
 
 	<xs:complexType name="user">
 		<xs:attribute name="id" type="xs:long" />
 		<xs:attribute name="username" type="xs:string" />
 		<xs:attribute name="firstName" type="xs:string" />
 		<xs:attribute name="lastName" type="xs:string" />
-		<xs:attribute name="salutation" type="salutation" />
+		<xs:attribute name="salutation" type="stockwatcher:salutation" />
 		<xs:attribute name="emailAddress" type="xs:string" />
 		<xs:attribute name="mobileNumber" type="xs:string" />
 		<xs:attribute name="address" type="xs:string" />
 	</xs:complexType>
 
-	<xs:element name="salutation" type="salutation" />
+	<xs:element name="salutation" type="stockwatcher:salutation" />
 
 	<xs:simpleType name="salutation">
 		<xs:restriction base="xs:string">
@@ -24,7 +26,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:element name="stock" type="stock" />
+	<xs:element name="stock" type="stockwatcher:stock" />
 
 	<xs:complexType name="stock">
 		<xs:attribute name="id" type="xs:long" />
@@ -40,7 +42,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:element name="stockWatch" type="stockWatch"></xs:element>
+	<xs:element name="stockWatch" type="stockwatcher:stockWatch"></xs:element>
 
 	<xs:complexType name="stockWatch">
 		<xs:attribute name="id" type="xs:long" />
@@ -50,13 +52,15 @@
 		<xs:attribute name="makrketValue" type="xs:string" />
 	</xs:complexType>
 
+
+	<xs:element name="watchList" type="stockwatcher:watchList" />
 	<xs:complexType name="watchList">
 		<xs:sequence>
 			<xs:element name="watchList" minOccurs="0" maxOccurs="unbounded"
-				type="stockWatch" />
+				type="stockwatcher:stockWatch" />
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="alert" type="alertType" />
+		<xs:attribute name="alert" type="stockwatcher:alertType" />
 	</xs:complexType>
 
 </xs:schema>

@@ -22,17 +22,31 @@
 		</dependency>
 	</dependencies>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<build>
 		<plugins>
+			<!-- Plugin required to build java classes from XSD using XJC -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
+					<extension>true</extension>
 					<packageName>com.octacore.stock.dto</packageName>
-					<outputDirectory>${basedir}/src/main/java</outputDirectory>
+					<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
+					<bindingDirectory>${project.basedir}/src/main/resources</bindingDirectory>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 
