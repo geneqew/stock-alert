@@ -1,24 +1,46 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified" targetNamespace="http://www.example.com/stock-watcher"
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.example.com/stock-watcher"
 	xmlns:stockwatcher="http://www.example.com/stock-watcher">
 
-	<xs:element name="user" type="stockwatcher:user" />
+	<xs:element
+		name="userDTO"
+		type="stockwatcher:userDTO" />
 
-	<xs:complexType name="user">
-		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="username" type="xs:string" />
-		<xs:attribute name="firstName" type="xs:string" />
-		<xs:attribute name="lastName" type="xs:string" />
-		<xs:attribute name="salutation" type="stockwatcher:salutation" />
-		<xs:attribute name="emailAddress" type="xs:string" />
-		<xs:attribute name="mobileNumber" type="xs:string" />
-		<xs:attribute name="address" type="xs:string" />
+	<xs:complexType name="userDTO">
+		<xs:attribute
+			name="id"
+			type="xs:long" />
+		<xs:attribute
+			name="username"
+			type="xs:string" />
+		<xs:attribute
+			name="firstName"
+			type="xs:string" />
+		<xs:attribute
+			name="lastName"
+			type="xs:string" />
+		<xs:attribute
+			name="salutation"
+			type="stockwatcher:salutationDTO" />
+		<xs:attribute
+			name="emailAddress"
+			type="xs:string" />
+		<xs:attribute
+			name="mobileNumber"
+			type="xs:string" />
+		<xs:attribute
+			name="address"
+			type="xs:string" />
 	</xs:complexType>
 
-	<xs:element name="salutation" type="stockwatcher:salutation" />
+	<xs:element
+		name="salutationDTO"
+		type="stockwatcher:salutationDTO" />
 
-	<xs:simpleType name="salutation">
+	<xs:simpleType name="salutationDTO">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="MR" />
 			<xs:enumeration value="MS" />
@@ -26,15 +48,23 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:element name="stock" type="stockwatcher:stock" />
+	<xs:element
+		name="stockDTO"
+		type="stockwatcher:stockDTO" />
 
-	<xs:complexType name="stock">
-		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="code" type="xs:string" />
-		<xs:attribute name="marketPrice" type="xs:decimal" />
+	<xs:complexType name="stockDTO">
+		<xs:attribute
+			name="id"
+			type="xs:long" />
+		<xs:attribute
+			name="code"
+			type="xs:string" />
+		<xs:attribute
+			name="marketPrice"
+			type="xs:decimal" />
 	</xs:complexType>
 
-	<xs:simpleType name="alertType">
+	<xs:simpleType name="alertTypeDTO">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="EMAIL" />
 			<xs:enumeration value="APP" />
@@ -42,25 +72,47 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:element name="stockWatch" type="stockwatcher:stockWatch"></xs:element>
+	<xs:element
+		name="stockWatchDTO"
+		type="stockwatcher:stockWatchDTO"></xs:element>
 
-	<xs:complexType name="stockWatch">
-		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="belowTargetPrice" type="xs:decimal" />
-		<xs:attribute name="aboveTargetPrice" type="xs:decimal" />
-		<xs:attribute name="stockCode" type="xs:string" />
-		<xs:attribute name="makrketValue" type="xs:string" />
+	<xs:complexType name="stockWatchDTO">
+		<xs:attribute
+			name="id"
+			type="xs:long" />
+		<xs:attribute
+			name="belowTargetPrice"
+			type="xs:decimal" />
+		<xs:attribute
+			name="aboveTargetPrice"
+			type="xs:decimal" />
+		<xs:attribute
+			name="stockCode"
+			type="xs:string" />
+		<xs:attribute
+			name="makrketValue"
+			type="xs:string" />
 	</xs:complexType>
 
 
-	<xs:element name="watchList" type="stockwatcher:watchList" />
-	<xs:complexType name="watchList">
+	<xs:element
+		name="watchListDTO"
+		type="stockwatcher:watchListDTO" />
+
+	<xs:complexType name="watchListDTO">
 		<xs:sequence>
-			<xs:element name="watchList" minOccurs="0" maxOccurs="unbounded"
-				type="stockwatcher:stockWatch" />
+			<xs:element
+				name="watchList"
+				minOccurs="0"
+				maxOccurs="unbounded"
+				type="stockwatcher:stockWatchDTO" />
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="alert" type="stockwatcher:alertType" />
+		<xs:attribute
+			name="id"
+			type="xs:long" />
+		<xs:attribute
+			name="alert"
+			type="stockwatcher:alertTypeDTO" />
 	</xs:complexType>
 
 </xs:schema>
