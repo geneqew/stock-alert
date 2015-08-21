@@ -2,6 +2,8 @@ package com.octacore.stock.ws.resource;
 
 import javax.ws.rs.core.Response;
 
+import com.octacore.stock.dto.SalutationDTO;
+
 /**
  * Resource interface for user management
  * 
@@ -40,7 +42,11 @@ public interface UserResource {
 	 * @param emailAddress
 	 *            email address filter
 	 * @param mobileNumber
-	 *            mobile number filter
+	 *            mobile number filter<jaxb:bindings version="2.0"
+	 *            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	 *            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 *            xmlns:annox="http://annox.dev.java.net"
+	 *            jaxb:extensionBindingPrefixes="annox">
 	 * @param address
 	 *            address filter
 	 * 
@@ -56,7 +62,7 @@ public interface UserResource {
 	 *         </ul>
 	 */
 	Response get(String username, String firstName, String lastName,
-			String salutation, String emailAddress, String mobileNumber,
+			SalutationDTO salutation, String emailAddress, String mobileNumber,
 			String address);
 
 }
