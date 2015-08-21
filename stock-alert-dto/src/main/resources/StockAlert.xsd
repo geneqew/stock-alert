@@ -5,7 +5,7 @@
 
 	<xs:complexType name="user">
 		<xs:attribute name="id" type="xs:long" />
-		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="username" type="xs:string" />
 		<xs:attribute name="firstName" type="xs:string" />
 		<xs:attribute name="lastName" type="xs:string" />
 		<xs:attribute name="salutation" type="salutation" />
@@ -23,5 +23,40 @@
 			<xs:enumeration value="MRS" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:element name="stock" type="stock" />
+
+	<xs:complexType name="stock">
+		<xs:attribute name="id" type="xs:long" />
+		<xs:attribute name="code" type="xs:string" />
+		<xs:attribute name="marketPrice" type="xs:decimal" />
+	</xs:complexType>
+
+	<xs:simpleType name="alertType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EMAIL" />
+			<xs:enumeration value="APP" />
+			<xs:enumeration value="SMS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="stockWatch" type="stockWatch"></xs:element>
+
+	<xs:complexType name="stockWatch">
+		<xs:attribute name="id" type="xs:long" />
+		<xs:attribute name="belowTargetPrice" type="xs:decimal" />
+		<xs:attribute name="aboveTargetPrice" type="xs:decimal" />
+		<xs:attribute name="stockCode" type="xs:string" />
+		<xs:attribute name="makrketValue" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="watchList">
+		<xs:sequence>
+			<xs:element name="watchList" minOccurs="0" maxOccurs="unbounded"
+				type="stockWatch" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:long" />
+		<xs:attribute name="alert" type="alertType" />
+	</xs:complexType>
 
 </xs:schema>

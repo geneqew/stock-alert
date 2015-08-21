@@ -1,6 +1,7 @@
 package com.octacore.stock.alert.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WatchList implements Serializable {
@@ -9,8 +10,9 @@ public class WatchList implements Serializable {
 
 	private Long id;
 	private User user;
-	private List<Stock> stocks;
+	private List<StockWatch> watchList;
 	private Alert alert;
+	private boolean notificationSent;
 
 	public Long getId() {
 		return id;
@@ -28,14 +30,6 @@ public class WatchList implements Serializable {
 		this.user = user;
 	}
 
-	public List<Stock> getStocks() {
-		return stocks;
-	}
-
-	public void setStocks(List<Stock> stocks) {
-		this.stocks = stocks;
-	}
-
 	public Alert getAlert() {
 		return alert;
 	}
@@ -44,8 +38,15 @@ public class WatchList implements Serializable {
 		this.alert = alert;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public List<StockWatch> getWatchList() {
+		if (watchList == null) {
+			this.watchList = new ArrayList<StockWatch>();
+		}
+		return watchList;
+	}
+
+	public boolean isNotificationSent() {
+		return notificationSent;
 	}
 
 }
